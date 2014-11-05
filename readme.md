@@ -2,7 +2,7 @@
 
 This repo consolidates several reputable `hosts` files and consolidates them into a single hosts file that you can use.
 
-**Currently this hosts file contains 873113 unique entries.**
+**Currently this hosts file contains 25092 unique entries.**
 
 ## Source of host data amalgamated here
 
@@ -77,4 +77,4 @@ and run:
 ### Linux
 Open a Terminal and run:
 
-`/etc/rc.d/init.d/nscd restart`
+`service networking restart`
