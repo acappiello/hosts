@@ -1,0 +1,46 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+	127.0.0.1       localhost
+	::1             localhost
+
+# Borrowed from http://gawkerblocker.com/index.php/windows-7
+	127.0.0.1	advertising.gawker.com
+	127.0.0.1	gawker.com
+	127.0.0.1	deadspin.com
+	127.0.0.1	jezebel.com
+	127.0.0.1	kotaku.com
+	127.0.0.1	io9.com
+	127.0.0.1	jalopnik.com
+	127.0.0.1	gizmodo.com
+	127.0.0.1	lifehacker.com
+	127.0.0.1	www.gawker.com
+	127.0.0.1	www.deadspin.com
+	127.0.0.1	www.jezebel.com
+	127.0.0.1	www.kotaku.com
+	127.0.0.1	www.io9.com
+	127.0.0.1	www.jalopnik.com
+	127.0.0.1	www.gizmodo.com
+	127.0.0.1	www.lifehacker.com
+# Not a gawker site, but I fucking hate mashable links. Seriously, if you
+# are thinking of sharing a link to mashable you will be the thousandth
+# person to do so today! Already seen it, grandma.
+# If you want to see mashable just remove that line or add a # before it.
+	127.0.0.1	mashable.com
+	127.0.0.1	www.mashable.com
