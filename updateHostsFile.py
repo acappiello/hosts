@@ -17,6 +17,17 @@ import urllib2
 import zipfile
 import StringIO
 
+# Be nice to terminals that don't support color. IN particular, cmd.
+try:
+	import curses
+	curses.setupterm()
+	if curses.tigetnum("colors") != 0:
+		COLOR=True
+	else:
+		COLOR=False
+except ImportError:
+	COLOR=False
+
 # Project Settings
 BASEDIR_PATH = os.path.dirname(os.path.realpath(__file__))
 DATA_PATH = BASEDIR_PATH + '/data'
@@ -165,7 +176,7 @@ def removeDups(mergeFile):
 
 	hostnames = set()
 	for line in mergeFile.readlines():
-		if line[0].startswith("#") or line[0] == '\n':
+		if line[0].startswith("#") or line.lstrip(" \t")[0] == '\n':
 			finalFile.write(line) #maintain the comments for readability
 			continue
 		strippedRule = stripRule(line) #strip comments
@@ -188,6 +199,8 @@ def normalizeRule(rule):
 	result = re.search(r'^\s*(\d+\.\d+\.\d+\.\d+)\s+([\w\.-]+)(.*)',rule)
 	if result:
 		target, hostname, suffix = result.groups()
+		if hostname == "localhost":
+			return hostname, "%s\t%s%s\n" % ("127.0.0.1", hostname, suffix)
 		return hostname, "%s\t%s%s\n" % (TARGET_HOST, hostname, suffix)
 	print '==>%s<==' % rule
 	return None, None
@@ -203,6 +216,9 @@ def stripRule(line):
 	if (len(splitLine) < 2) :
 		printFailure('A line in the hostfile is going to cause problems because it is nonstandard\n' +
 					 'The line reads ' + line + ' please check your data files. Maybe you have a comment without a #?')
+		print len(line)
+		for c in line:
+			print ord(c)
 		sys.exit()
 	return splitLine[0] + ' ' + splitLine[1]
 
@@ -229,19 +245,19 @@ def updateReadme(numberOfRules):
 
 def moveHostsFileIntoPlace(finalFile):
 	if (os.name == 'posix'):
-		print 'Moving the file requires administrative privileges. You might need to enter your password.'
-		if(subprocess.call(["/usr/bin/sudo", "cp", os.path.abspath(finalFile.name), "/etc/hosts"])):
-			printFailure("Moving the file failed.")
-		print 'Flushing the DNS Cache to utilize new hosts file...'
 		if (platform.system() == 'Darwin'):
-			if(subprocess.call(["/usr/bin/sudo", "killall", "-HUP", "mDNSResponder"])):
+			print 'Moving the file requires administrative privileges. You might need to enter your password.'
+			if (subprocess.call(["/usr/bin/sudo", "cp", os.path.abspath(finalFile.name), "/etc/hosts"])):
+				printFailure("Moving the file failed.")
+			print 'Flushing the DNS Cache to utilize new hosts file...'
+			if (subprocess.call(["/usr/bin/sudo", "killall", "-HUP", "mDNSResponder"])):
 				printFailure("Flushing the DNS Cache failed.")
 		else:
-			if(subprocess.call(["/usr/bin/sudo", "/etc/rc.d/init.d/nscd", "restart"])):
-				printFailure("Flushing the DNS Cache failed.")
+			if (subprocess.call(["/usr/bin/sudo", "./updateLinux.sh"])):
+				printFailure("Updating hosts file failed.")
 	elif (os.name == 'nt'):
-		print 'Automatically moving the hosts file in place is not yet supported.'
-		print 'Please move the generated file to %SystemRoot%\system32\drivers\etc\hosts'
+		if (subprocess.call("updateWindows.bat")):
+			printFailure("Updating hosts file failed.")
 
 # End File Logic
 
@@ -299,7 +315,9 @@ class colors:
     ENDC 	= '\033[0m'
 
 def colorize(text, color):
-	return color + text + colors.ENDC
+	if COLOR:
+		return color + text + colors.ENDC
+	return text
 
 def printSuccess(text):
 	print colorize(text, colors.SUCCESS)
