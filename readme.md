@@ -13,6 +13,7 @@ Currently the `hosts` files from the following locations are amalgamated:
 * Malware Domain List at [http://www.malwaredomainlist.com/](http://www.malwaredomainlist.com/), updated regularly.
 * Peter Lowe at [http://pgl.yoyo.org/adservers/](http://pgl.yoyo.org/adservers/), updated regularly.
 * Steven Black's list [here](https://raw.github.com/StevenBlack/hosts/master/data/StevenBlack/hosts).
+* My own list [here](https://raw.githubusercontent.com/acappiello/hosts/master/data/AlexCappiello/hosts).
 
 You can add any additional sources you'd like under the data/ directory. Provide a copy of the current `hosts` file and a file called
 update.info with the URL to the `hosts` file source. This will allow updateHostsFile.py to automatically update your source.
