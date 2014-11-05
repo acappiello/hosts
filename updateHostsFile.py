@@ -17,7 +17,7 @@ import urllib2
 import zipfile
 import StringIO
 
-# Be nice to terminals that don't support color. IN particular, cmd.
+# Be nice to terminals that don't support color. In particular, cmd.
 try:
 	import curses
 	curses.setupterm()
@@ -161,6 +161,7 @@ def getUpdateURLFromFile(source):
 # File Logic
 def createInitialFile():
 	mergeFile = tempfile.NamedTemporaryFile()
+	# Linux Mint (so, presumably all Ubuntu derivatives) needs this.
 	mergeFile.write("127.0.1.1\t%s\n" % (platform.node()))
 	for source in SOURCES:
 		curFile = open(DATA_PATH + '/' + source +'/' + DATA_FILENAMES, 'r')
