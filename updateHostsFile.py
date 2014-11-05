@@ -161,6 +161,7 @@ def getUpdateURLFromFile(source):
 # File Logic
 def createInitialFile():
 	mergeFile = tempfile.NamedTemporaryFile()
+	mergeFile.write("127.0.1.1\t%s\n" % (platform.node()))
 	for source in SOURCES:
 		curFile = open(DATA_PATH + '/' + source +'/' + DATA_FILENAMES, 'r')
 		mergeFile.write('\n# Begin ' + source + '\n')
@@ -201,6 +202,8 @@ def normalizeRule(rule):
 		target, hostname, suffix = result.groups()
 		if hostname == "localhost":
 			return hostname, "%s\t%s%s\n" % ("127.0.0.1", hostname, suffix)
+		elif hostname == platform.node():
+			return hostname, "%s\t%s%s\n" % ("127.0.1.1", hostname, suffix)
 		return hostname, "%s\t%s%s\n" % (TARGET_HOST, hostname, suffix)
 	print '==>%s<==' % rule
 	return None, None
