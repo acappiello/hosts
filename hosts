@@ -11,8 +11,9 @@
 #    StevenBlack
 #    yoyo.org
 #
-# Merging these sources produced 25092 unique entries
+# Merging these sources produced 25111 unique entries
 # ===============================================================
+127.0.1.1	ALEX-WIN10
 
 # Begin AlexCappiello
 # Copyright (c) 1993-2009 Microsoft Corp.
@@ -37,6 +38,13 @@
 127.0.0.1	localhost
 	::1             localhost
 
+# The following lines are desirable for IPv6 capable hosts
+	::1     ip6-localhost ip6-loopback
+	fe00::0 ip6-localnet
+	ff00::0 ip6-mcastprefix
+	ff02::1 ip6-allnodes
+	ff02::2 ip6-allrouters
+
 # Borrowed from http://gawkerblocker.com/index.php/windows-7
 0.0.0.0	advertising.gawker.com
 0.0.0.0	gawker.com
@@ -47,6 +55,7 @@
 0.0.0.0	jalopnik.com
 0.0.0.0	gizmodo.com
 0.0.0.0	lifehacker.com
+0.0.0.0	kinja.com
 0.0.0.0	www.gawker.com
 0.0.0.0	www.deadspin.com
 0.0.0.0	www.jezebel.com
@@ -55,12 +64,32 @@
 0.0.0.0	www.jalopnik.com
 0.0.0.0	www.gizmodo.com
 0.0.0.0	www.lifehacker.com
-# Not a gawker site, but I fucking hate mashable links. Seriously, if you
-# are thinking of sharing a link to mashable you will be the thousandth
-# person to do so today! Already seen it, grandma.
-# If you want to see mashable just remove that line or add a # before it.
+0.0.0.0	www.kinja.com
+	
+# Goodbye, Vox Media.
+0.0.0.0	polygon.com
+0.0.0.0	www.polygon.com
+0.0.0.0	voxmedia.com
+0.0.0.0	www.voxmedia.com
+0.0.0.0	vox.com
+0.0.0.0	www.vox.com
+0.0.0.0	sbnation.com
+0.0.0.0	www.sbnation.com
+0.0.0.0	theverge.com
+0.0.0.0	www.theverge.com
+	
+# More junk.
 0.0.0.0	mashable.com
 0.0.0.0	www.mashable.com
+0.0.0.0	9gag.com
+0.0.0.0	www.9gag.com
+
+# Misc.
+0.0.0.0	gamasutra.com
+0.0.0.0	www.gamasutra.com
+0.0.0.0	arstechnica.com
+0.0.0.0	www.arstechnica.com
+
 # End AlexCappiello
 
 # Begin malwaredomainlist.com
