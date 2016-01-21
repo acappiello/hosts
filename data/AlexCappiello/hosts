@@ -17,53 +17,56 @@
 #       38.25.63.10     x.acme.com              # x client host
 
 # The following lines are desirable for IPv6 capable hosts
-	::1     ip6-localhost ip6-loopback
-	fe00::0 ip6-localnet
-	ff00::0 ip6-mcastprefix
-	ff02::1 ip6-allnodes
-	ff02::2 ip6-allrouters
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
 
 # Borrowed from http://gawkerblocker.com/index.php/windows-7
-	127.0.0.1	advertising.gawker.com
-	127.0.0.1	gawker.com
-	127.0.0.1	deadspin.com
-	127.0.0.1	jezebel.com
-	127.0.0.1	kotaku.com
-	127.0.0.1	io9.com
-	127.0.0.1	jalopnik.com
-	127.0.0.1	gizmodo.com
-	127.0.0.1	lifehacker.com
-	127.0.0.1	kinja.com
-	127.0.0.1	www.gawker.com
-	127.0.0.1	www.deadspin.com
-	127.0.0.1	www.jezebel.com
-	127.0.0.1	www.kotaku.com
-	127.0.0.1	www.io9.com
-	127.0.0.1	www.jalopnik.com
-	127.0.0.1	www.gizmodo.com
-	127.0.0.1	www.lifehacker.com
-	127.0.0.1	www.kinja.com
-	
+127.0.0.1 advertising.gawker.com
+127.0.0.1 gawker.com
+127.0.0.1 deadspin.com
+127.0.0.1 jezebel.com
+127.0.0.1 kotaku.com
+127.0.0.1 io9.com
+127.0.0.1 jalopnik.com
+127.0.0.1 gizmodo.com
+127.0.0.1 lifehacker.com
+127.0.0.1 kinja.com
+127.0.0.1 www.gawker.com
+127.0.0.1 www.deadspin.com
+127.0.0.1 www.jezebel.com
+127.0.0.1 www.kotaku.com
+127.0.0.1 www.io9.com
+127.0.0.1 www.jalopnik.com
+127.0.0.1 www.gizmodo.com
+127.0.0.1 www.lifehacker.com
+127.0.0.1 www.kinja.com
+
 # Goodbye, Vox Media.
-	127.0.0.1	polygon.com
-	127.0.0.1	www.polygon.com
-	127.0.0.1	voxmedia.com
-	127.0.0.1	www.voxmedia.com
-	127.0.0.1	vox.com
-	127.0.0.1	www.vox.com
-	127.0.0.1	sbnation.com
-	127.0.0.1	www.sbnation.com
-	127.0.0.1	theverge.com
-	127.0.0.1	www.theverge.com
-	
+127.0.0.1 polygon.com
+127.0.0.1 www.polygon.com
+127.0.0.1 voxmedia.com
+127.0.0.1 www.voxmedia.com
+127.0.0.1 vox.com
+127.0.0.1 www.vox.com
+127.0.0.1 sbnation.com
+127.0.0.1 www.sbnation.com
+127.0.0.1 theverge.com
+127.0.0.1 www.theverge.com
+
 # More junk.
-	127.0.0.1	mashable.com
-	127.0.0.1	www.mashable.com
-	127.0.0.1	9gag.com
-	127.0.0.1	www.9gag.com
+127.0.0.1 mashable.com
+127.0.0.1 www.mashable.com
+127.0.0.1 9gag.com
+127.0.0.1 www.9gag.com
 
 # Misc.
-	127.0.0.1	gamasutra.com
-	127.0.0.1	www.gamasutra.com
-	127.0.0.1	arstechnica.com
-	127.0.0.1	www.arstechnica.com
+127.0.0.1 gamasutra.com
+127.0.0.1 www.gamasutra.com
+127.0.0.1 arstechnica.com
+127.0.0.1 www.arstechnica.com
+
+# Microsoft Telemetry: https://voat.co/v/technology/comments/445371/2033525
+# Currently removed in favor of https://github.com/10se1ucgo/DisableWinTracking
